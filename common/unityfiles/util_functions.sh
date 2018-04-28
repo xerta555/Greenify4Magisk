@@ -153,6 +153,22 @@ mktouch() {
   chmod 644 $1
 }
 
+sysover_partitions() {
+  if [ -f /system/init.rc ]; then
+    ROOT=/system_root
+    REALSYS=/system_root/system
+  else
+    REALSYS=/system
+  fi
+  if [ -L /system/vendor ]; then
+    VEN=/vendor
+    REALVEN=/vendor
+  else
+    VEN=/system/vendor
+    REALVEN=$REALSYS/vendor
+  fi
+}
+
 supersuimg_mount() {
   supersuimg=$(ls /cache/su.img /data/su.img 2>/dev/null)
   if [ "$supersuimg" ]; then
@@ -226,12 +242,21 @@ device_check() {
   fi
 }
 
+check_bak() {
+  case $1 in
+    /system/*|/vendor/*) BAK=true;;
+    $MOUNTPATH/*|/sbin/.core/img/*) BAK=false;;
+    *) BAK=true;;
+  esac
+  if ! $MAGISK || $SYSOVERRIDE; then BAK=true; fi
+}
+
 cp_ch_nb() {
-  if [ -z $4 ]; then ALLBAK=false; else ALLBAK=$4; fi
-  if ( ! $MAGISK || $ALLBAK ) && [ ! "$(grep "$2$" $INFO)" ]; then echo "$2" >> $INFO; fi
+  if [ -z $4 ]; then check_bak $2; else BAK=$4; fi
+  if $BAK && [ ! "$(grep "$2$" $INFO)" ]; then echo "$2" >> $INFO; fi
   mkdir -p "$(dirname $2)"
   cp -f "$1" "$2"
-  if [ -z $3 ] || [ "$3" == "noperm" ]; then
+  if [ -z $3 ]; then
     chmod 0644 "$2"
   else
     chmod $3 "$2"
@@ -245,15 +270,12 @@ cp_ch_nb() {
 }
 
 cp_ch() {
-  case $2 in
-    */system/*|*/vendor/*) ALLBAK=false;;
-    *) ALLBAK=true;;
-  esac
-  if [ -f "$2" ] && [ ! -f "$2.bak" ] && ( ! $MAGISK || $ALLBAK ); then
+  check_bak $2
+  if [ -f "$2" ] && [ ! -f "$2.bak" ] && $BAK; then
     cp -af $2 $2.bak
     echo "$2.bak" >> $INFO
   fi
-  if [ -z $3 ]; then cp_ch_nb $1 $2 "noperm" $ALLBAK; else cp_ch_nb $1 $2 $3 $ALLBAK; fi
+  if [ -z $3 ]; then cp_ch_nb $1 $2 0644 $BAK; else cp_ch_nb $1 $2 $3 $BAK; fi
 }
 
 install_script() {
@@ -269,10 +291,17 @@ install_script() {
 patch_script() {
   sed -i "s|<MAGISK>|$MAGISK|" $1
   sed -i "s|<LIBDIR>|$LIBDIR|" $1
+  sed -i "s|<SYSOVERRIDE>|$SYSOVERRIDE|" $1
+  sed -i "s|<MODID>|$MODID|" $1
   if $MAGISK; then
+    if $SYSOVERRIDE; then
+      sed -i "s|<INFO>|$INFO|" $1
+      sed -i "s|<VEN>|$REALVEN|" $1
+    else
+      sed -i "s|<VEN>|$VEN|" $1
+    fi
     sed -i "s|<ROOT>|\"\"|" $1
     sed -i "s|<SYS>|/system|" $1
-    sed -i "s|<VEN>|$VEN|" $1
     sed -i "s|<SHEBANG>|#!/system/bin/sh|" $1
     sed -i "s|<SEINJECT>|magiskpolicy|" $1
     sed -i "s|\$MOUNTPATH|/sbin/.core/img|g" $1                                   
