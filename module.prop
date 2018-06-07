@@ -1,7 +1,7 @@
 id=Greenify4Magisk
 name=Greenify4Magisk
-version=v4.0.0
-versionCode=47
+version=v4.0.1
+versionCode=48
 author=Abacate123
 description=A very simple module to make Greenify work as a privileged app, to achieve the best performance systemlessly.
 minMagisk=1530
