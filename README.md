@@ -3,6 +3,10 @@
   <img src="http://i.imgur.com/RTIZiTb.png">
 </p>
 
+<p align="center">
+ <a href="https://t.me/Greenify4Magisk"><img src="https://img.shields.io/badge/Telegram-Channel-blue.svg"></a>
+</p>
+
 ## Module Explanation:
 A very simple module just to make Greenify work as a rom-integrated (privileged) app systemlessly (also known as Boost Mode), so you'll achieve the best hibernating performance it could give, and faster than using the root option only. It'll simply inject a folder with the apk into the path: /system/priv-app. If it shows Privileged at the app settings, then you're good.
 
