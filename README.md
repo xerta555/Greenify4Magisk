@@ -19,9 +19,6 @@ A very simple module just to make Greenify work as a rom-integrated (privileged)
 ### About the apk:
 * Apk downloaded directly from [APKMirror](http://www.apkmirror.com/apk/oasis-feng/greenify/ "Greenify's APKMirror page"), **original and not tampered in any way**.
 
-# XDA Module Thread:
-[https://forum.xda-developers.com/apps/magisk/module-greenify4magisk-t3606277](https://forum.xda-developers.com/apps/magisk/module-greenify4magisk-t3606277 "Module official XDA thread")
-
 # Credits:
 * Greenify Developer - [Oasis Feng](https://play.google.com/store/apps/details?id=com.oasisfeng.greenify "Greenify's Play Store page").
 
