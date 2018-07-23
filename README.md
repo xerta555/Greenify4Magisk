@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
- <a href="https://t.me/Greenify4Magisk"><img src="https://img.shields.io/badge/Telegram-Channel-blue.svg"></a>
+ <a href="https://forum.xda-developers.com/apps/magisk/module-greenify4magisk-t3606277"><img src="https://img.shields.io/badge/XDA-Thread-yellow.svg"></a><br /><a href="https://t.me/Greenify4Magisk"><img src="https://img.shields.io/badge/Telegram-Channel-blue.svg"></a>
 </p>
 
 ## Module Explanation:
