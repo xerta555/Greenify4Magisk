@@ -27,7 +27,7 @@ A very simple module just to make Greenify work as a rom-integrated (privileged)
 
 * Magisk Developer - [Topjohnwu](https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445 "Magisk official XDA thread").
 
-## Third party code used:
+### Third party code used:
 * [Unity Template](https://github.com/Zackptg5/Unity "Template's repository").
 
 ## Repository image by:
