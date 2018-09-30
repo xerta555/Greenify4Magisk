@@ -8,5 +8,11 @@
     <permission name="android.permission.FORCE_STOP_PACKAGES"/>
     <permission name="android.permission.INTERACT_ACROSS_USERS"/>
     <permission name="android.permission.READ_LOGS"/>>
+    <permission name="android.permission.CALL_LOG"/>>
+    <permission name="android.permission.READ_CALL_LOG"/>>
+    <permission name="android.permission.WRITE_CALL_LOG"/>>
+    <permission name="android.permission.PROCESS_OUTGOING_CALLS"/>>
+    <permission name="android.permission.READ_PHONE_STATE"/>>
+    
   </privapp-permissions>
 </permissions>
