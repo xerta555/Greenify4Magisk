@@ -43,8 +43,8 @@ LATESTARTSERVICE=false
 # Uncomment SYSOVERRIDE if you want the mod to always be installed to system (even on magisk)
 # Uncomment RAMDISK if you have ramdisk modifications. If you only want ramdisk patching as part of a conditional, just keep this commented out and set RAMDISK=true in that conditional.
 # Uncomment DEBUG if you want full debug logs (saved to SDCARD if in twrp, part of regular log if in magisk manager (user will need to save log after flashing)
-#MINAPI=21
-#MAXAPI=25
+MINAPI=21
+MAXAPI=25
 #SEPOLICY=true
 #SYSOVERRIDE=true
 #DYNAMICOREO=true
@@ -66,14 +66,10 @@ unity_custom() {
 # Set what you want to show when installing your mod
 
 print_modname() {
-  ui_print " "
-  ui_print "    *******************************************"
-  ui_print "    *<name>*"
-  ui_print "    *******************************************"
-  ui_print "    *<version>*"
-  ui_print "    *<author>*"
-  ui_print "    *******************************************"
-  ui_print " "
+  ui_print "*******************************"
+  ui_print "     Greenify4Magisk Module     "
+  ui_print "              By Abacate123               "
+  ui_print "*******************************"
 }
 
 ##########################################################################################
