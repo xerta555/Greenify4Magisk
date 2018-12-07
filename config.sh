@@ -44,7 +44,7 @@ LATESTARTSERVICE=false
 # Uncomment RAMDISK if you have ramdisk modifications. If you only want ramdisk patching as part of a conditional, just keep this commented out and set RAMDISK=true in that conditional.
 # Uncomment DEBUG if you want full debug logs (saved to SDCARD if in twrp, part of regular log if in magisk manager (user will need to save log after flashing)
 MINAPI=21
-MAXAPI=25
+MAXAPI=28
 #SEPOLICY=true
 #SYSOVERRIDE=true
 #DYNAMICOREO=true
